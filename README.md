@@ -24,7 +24,8 @@ Sichere Web-App mit Next.js (App Router), Tailwind CSS, Lucide Icons und Supabas
    ```bash
    npm run dev
    ```
-   App: [http://localhost:3000](http://localhost:3000)
+   Wenn die Meldung „Ready in …“ erscheint, im Browser [http://localhost:3000](http://localhost:3000) öffnen.  
+   Alternativ: `npm run dev:open` startet den Server und öffnet die App nach wenigen Sekunden automatisch im Browser.
 
 4. **Ersten Nutzer anlegen**
    - `/signup` aufrufen und E-Mail/Passwort registrieren

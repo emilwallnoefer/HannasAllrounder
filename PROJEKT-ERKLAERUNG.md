@@ -39,7 +39,6 @@ Diese Übersicht erklärt, welche Dateien es gibt und wofür sie da sind.
 | Datei | Zweck |
 |-------|--------|
 | **DashboardNav.tsx** | Seitliche Navigation im Dashboard: Links (Dashboard, Einstellungen), Anzeige der User-E-Mail, Abmelden-Button. |
-| **DashboardTiles.tsx** | Die Kacheln auf dem Dashboard: Glassmorphism, abgerundete Ecken, Rosé-Border und leichter Glow beim Hover. |
 
 ---
 
