@@ -1,4 +1,3 @@
-import { DashboardTiles } from "@/components/DashboardTiles";
 import { GedankenDeponie } from "@/components/GedankenDeponie";
 import { HaushaltsTracker } from "@/components/HaushaltsTracker";
 import { Wunschliste } from "@/components/Wunschliste";
@@ -14,7 +13,6 @@ export default function DashboardPage() {
         <p className="text-gray-500 mb-4 sm:mb-6 text-sm sm:text-base">
           Willkommen. Hier siehst du deine Übersicht.
         </p>
-        <DashboardTiles />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
