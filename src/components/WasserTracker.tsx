@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Droplets, Plus, Minus } from "lucide-react";
 
@@ -8,15 +8,24 @@ const GOAL_ML = 2000;
 const STEP_ML = 250;
 const ROSE = "#e4a8b0";
 
+/** Heutiges Datum in Ortszeit (YYYY-MM-DD) – Reset um 24:00 Lokalzeit */
+function getTodayLocal(): string {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 export function WasserTracker() {
   const [totalToday, setTotalToday] = useState(0);
   const [logs, setLogs] = useState<{ id: string; amount: number }[]>([]);
   const [loading, setLoading] = useState(true);
+  const lastDateRef = useRef<string>(getTodayLocal());
   const supabase = createClient();
 
-  const today = new Date().toISOString().slice(0, 10);
-
   const fetchToday = useCallback(async () => {
+    const today = getTodayLocal();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
     const { data } = await supabase
@@ -29,13 +38,27 @@ export function WasserTracker() {
     setLogs(list);
     setTotalToday(list.reduce((s, l) => s + l.amount, 0));
     setLoading(false);
-  }, [supabase, today]);
+  }, [supabase]);
 
   useEffect(() => {
     fetchToday();
   }, [fetchToday]);
 
+  /** Alle 60 s prüfen, ob neuer Tag (Mitternacht) – dann neu laden */
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = getTodayLocal();
+      if (now !== lastDateRef.current) {
+        lastDateRef.current = now;
+        setLoading(true);
+        fetchToday();
+      }
+    }, 60_000);
+    return () => clearInterval(interval);
+  }, [fetchToday]);
+
   async function add250() {
+    const today = getTodayLocal();
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
     await supabase.from("water_logs").insert({
