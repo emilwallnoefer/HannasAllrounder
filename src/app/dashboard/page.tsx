@@ -8,24 +8,24 @@ import { WasserTracker } from "@/components/WasserTracker";
 
 export default function DashboardPage() {
   return (
-    <div className="space-y-10">
+    <div className="space-y-6 sm:space-y-10">
       <div>
-        <h2 className="text-2xl font-semibold text-white mb-2">Dashboard</h2>
-        <p className="text-gray-500 mb-8">
+        <h2 className="text-xl sm:text-2xl font-semibold text-white mb-2">Dashboard</h2>
+        <p className="text-gray-500 mb-4 sm:mb-8 text-sm sm:text-base">
           Willkommen. Hier siehst du später deine Übersicht.
         </p>
         <DashboardTiles />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <section className="glass-card glass-card-hover p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <section className="glass-card glass-card-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
           <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
             <span className="text-rose">Kalender</span>
           </h3>
           <p className="text-sm text-gray-500 mb-4">Monatsübersicht. Klick öffnet die Wochenansicht.</p>
           <KalenderVorschau />
         </section>
-        <section className="glass-card glass-card-hover p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
+        <section className="glass-card glass-card-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
           <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
             <span className="text-rose">Wasser</span>
           </h3>
@@ -34,7 +34,7 @@ export default function DashboardPage() {
         </section>
       </div>
 
-      <section className="glass-card glass-card-hover p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
+      <section className="glass-card glass-card-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
         <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
           <span className="text-rose">Schule</span>
         </h3>
@@ -44,7 +44,7 @@ export default function DashboardPage() {
         <SchuleKachel />
       </section>
 
-      <section className="glass-card glass-card-hover p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
+      <section className="glass-card glass-card-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
         <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
           <span className="text-rose">Haushalts-Tracker</span>
         </h3>
@@ -54,7 +54,7 @@ export default function DashboardPage() {
         <HaushaltsTracker />
       </section>
 
-      <section className="glass-card glass-card-hover p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
+      <section className="glass-card glass-card-hover p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow">
         <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
           <span className="text-rose">Wunschliste</span>
         </h3>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
         <Wunschliste />
       </section>
 
-      <section className="glass-card p-6 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
+      <section className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
         <h3 className="text-lg font-semibold text-white mb-1 flex items-center gap-2">
           <span className="text-rose">Gedanken-Deponie</span>
         </h3>

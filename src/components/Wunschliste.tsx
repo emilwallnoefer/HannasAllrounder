@@ -151,7 +151,7 @@ function WunschlisteModal({ onClose, onSaved, supabase }: ModalProps) {
       aria-labelledby="modal-title"
     >
       <div
-        className="glass-card w-full max-w-md max-h-[90vh] overflow-y-auto rounded-3xl border border-white/10 bg-[#0f0f0f]/95 backdrop-blur-xl p-6 shadow-xl"
+        className="glass-card w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0f0f0f]/95 backdrop-blur-xl p-4 sm:p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-6">

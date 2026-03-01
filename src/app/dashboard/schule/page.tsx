@@ -77,9 +77,9 @@ export default function SchulePage() {
   }, [fetchData]);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h2 className="text-2xl font-semibold text-white mb-1">Schul-Jahresprogramm</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold text-white mb-1">Schul-Jahresprogramm</h2>
         <p className="text-gray-500 text-sm">
           Fächer auswählen und Themen abhaken.
         </p>

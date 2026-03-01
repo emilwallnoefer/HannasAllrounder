@@ -85,10 +85,10 @@ export default function KalenderPage() {
   const todayKey = toDateKey(new Date());
 
   return (
-    <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-semibold text-white">Kalender</h2>
-        <div className="flex items-center gap-2">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <h2 className="text-xl sm:text-2xl font-semibold text-white">Kalender</h2>
+        <div className="flex items-center justify-between sm:justify-end gap-2">
           <button
             type="button"
             onClick={prevWeek}
@@ -97,7 +97,7 @@ export default function KalenderPage() {
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
-          <span className="text-sm text-gray-400 min-w-[180px] text-center">
+          <span className="text-xs sm:text-sm text-gray-400 min-w-0 sm:min-w-[180px] text-center truncate">
             {weekDates[0].toLocaleDateString("de-DE", { day: "numeric", month: "short" })} –{" "}
             {weekDates[6].toLocaleDateString("de-DE", { day: "numeric", month: "short", year: "numeric" })}
           </span>
@@ -112,9 +112,9 @@ export default function KalenderPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-2">
+      <div className="grid grid-cols-7 gap-1 sm:gap-2 min-w-0">
         {WEEKDAYS.map((d) => (
-          <div key={d} className="text-center text-sm text-gray-500 py-2">
+          <div key={d} className="text-center text-[10px] sm:text-sm text-gray-500 py-1 sm:py-2">
             {d}
           </div>
         ))}
@@ -125,19 +125,19 @@ export default function KalenderPage() {
           return (
             <div
               key={key}
-              className={`glass-card glass-card-hover min-h-[120px] p-2 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow cursor-pointer ${
+              className={`glass-card glass-card-hover min-h-[80px] sm:min-h-[120px] p-1.5 sm:p-2 rounded-xl sm:rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-rose/50 hover:shadow-rose-glow cursor-pointer ${
                 isToday ? "ring-2 ring-rose" : ""
               }`}
               onClick={() => setSelectedDate(key)}
             >
-              <p className={`text-sm font-medium mb-1 ${isToday ? "text-rose" : "text-white"}`}>
+              <p className={`text-xs sm:text-sm font-medium mb-0.5 sm:mb-1 ${isToday ? "text-rose" : "text-white"}`}>
                 {d.getDate()}
               </p>
-              <ul className="space-y-1">
+              <ul className="space-y-0.5 sm:space-y-1">
                 {dayEvents.slice(0, 3).map((e) => (
                   <li
                     key={e.id}
-                    className="text-xs truncate px-1.5 py-0.5 rounded-lg border border-rose/30 bg-rose/10 text-rose"
+                    className="text-[10px] sm:text-xs truncate px-1 sm:px-1.5 py-0.5 rounded border border-rose/30 bg-rose/10 text-rose"
                     style={{ boxShadow: "0 0 12px rgba(228,168,176,0.2)" }}
                   >
                     {e.title}
@@ -230,7 +230,7 @@ function TerminModal({ date, onClose, onSaved, supabase }: TerminModalProps) {
       aria-labelledby="termin-modal-title"
     >
       <div
-        className="glass-card w-full max-w-md rounded-3xl border border-white/10 bg-[#0f0f0f]/95 backdrop-blur-xl p-6 shadow-xl"
+        className="glass-card w-full max-w-md max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0f0f0f]/95 backdrop-blur-xl p-4 sm:p-6 shadow-xl"
         onClick={(e) => e.stopPropagation()}
       >
         <h3 id="termin-modal-title" className="text-lg font-semibold text-white mb-4">

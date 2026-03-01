@@ -86,7 +86,7 @@ export default function SchuleFachPage() {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <Link
         href="/dashboard/schule"
         className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm transition-colors"

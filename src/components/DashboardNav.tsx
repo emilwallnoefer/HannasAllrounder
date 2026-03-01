@@ -17,9 +17,9 @@ const navItems = [
   { href: "/dashboard/settings", label: "Einstellungen", icon: Settings },
 ];
 
-type Props = { userEmail: string };
+type Props = { userEmail: string; onNavigate?: () => void };
 
-export function DashboardNav({ userEmail }: Props) {
+export function DashboardNav({ userEmail, onNavigate }: Props) {
   const pathname = usePathname();
   const router = useRouter();
   const supabase = createClient();
@@ -38,6 +38,7 @@ export function DashboardNav({ userEmail }: Props) {
           <Link
             key={href}
             href={href}
+            onClick={onNavigate}
             className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium transition-colors ${
               isActive
                 ? "bg-rose/10 text-rose border border-rose/20"
