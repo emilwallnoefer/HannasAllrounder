@@ -4,8 +4,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Hannas Allrounder",
   description: "Sichere Allrounder-Web-App",
-  manifest: "/manifest.json",
-  appleWebApp: { capable: true, title: "Hannas Allrounder" },
 };
 
 export const viewport: Viewport = {
